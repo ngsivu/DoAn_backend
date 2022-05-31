@@ -7,17 +7,16 @@ import {
   PrimaryGeneratedColumn,
   UpdateDateColumn,
 } from 'typeorm';
-import { OwnerPlace } from '../../owner-place/entities/owner-place.entity';
-import { ServicePlace } from './service-place.entity';
-import { TimeGold } from './time-vip.entity';
-import { TypePlace } from './type-place.entity';
+import { OwnerApartment } from '../../owner-apartment/entities/owner-apartments.entity';
+import { ServiceApartment } from './service-apartment.entity';
+import { TypeApartment } from './type-apartment.entity';
 
-@Entity({ name: 'place' })
-export class Place {
+@Entity({ name: 'apartment' })
+export class Apartment {
   @PrimaryGeneratedColumn('uuid', { name: 'id' })
   id: string;
 
-  @Column({ length: 30, name: 'address-place' })
+  @Column({ length: 30, name: 'address' })
   address: string;
 
   @Column({ name: 'point', default: 100 })
@@ -50,25 +49,21 @@ export class Place {
   @UpdateDateColumn()
   updateAt: Date;
 
-  @Column({ nullable: true })
-  timeDistance: number;
+  @ManyToOne(
+    () => OwnerApartment,
+    (OwnerApartment) => OwnerApartment.apartments,
+  )
+  owner: OwnerApartment;
 
-  @ManyToOne(() => OwnerPlace, (ownerPlace) => ownerPlace.places)
-  owner: OwnerPlace;
-
-  @ManyToOne(() => TypePlace, (typePlace) => typePlace.place)
-  typePlace: TypePlace;
+  @ManyToOne(() => TypeApartment, (typeApartment) => typeApartment.apartment)
+  typeApartment: TypeApartment;
   //one to many bang time vip
-  @OneToMany(() => TimeGold, (timeGold) => timeGold.place, {
-    cascade: true,
-  })
-  timeGold: TimeGold[];
 
   //one to many dich vu
-  @OneToMany(() => ServicePlace, (service) => service.place, {
+  @OneToMany(() => ServiceApartment, (service) => service.apartment, {
     cascade: true,
   })
-  services: ServicePlace[];
+  services: ServiceApartment[];
 
   //one to many comment place
 

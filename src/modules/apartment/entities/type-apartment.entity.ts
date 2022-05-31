@@ -1,8 +1,8 @@
 import { Column, Entity, OneToMany, PrimaryGeneratedColumn } from 'typeorm';
-import { Place } from './place.entity';
+import { Apartment } from './apartment.entity';
 
 @Entity({ name: 'type-place' })
-export class TypePlace {
+export class TypeApartment {
   @PrimaryGeneratedColumn('uuid', { name: 'id' })
   id: string;
 
@@ -12,6 +12,6 @@ export class TypePlace {
   @Column({ default: true })
   isAllow: boolean;
 
-  @OneToMany(() => Place, (place) => place.typePlace)
-  place: Place[];
+  @OneToMany(() => Apartment, (place) => place.typeApartment)
+  apartment: Apartment[];
 }

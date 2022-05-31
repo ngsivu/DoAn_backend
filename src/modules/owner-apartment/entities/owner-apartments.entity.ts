@@ -6,10 +6,10 @@ import {
   OneToOne,
   PrimaryGeneratedColumn,
 } from 'typeorm';
-import { Place } from '../../place/entities/place.entity';
+import { Apartment } from '../../apartment/entities/apartment.entity';
 
 @Entity('owner-place')
-export class OwnerPlace {
+export class OwnerApartment {
   @PrimaryGeneratedColumn('uuid', { name: 'id' })
   id: string;
 
@@ -28,6 +28,6 @@ export class OwnerPlace {
   @OneToOne(() => UserEntity, (user) => user.ownerPlace)
   userInfo: UserEntity;
 
-  @OneToMany(() => Place, (place) => place.owner)
-  places: Place[];
+  @OneToMany(() => Apartment, (place) => place.owner)
+  apartments: Apartment[];
 }

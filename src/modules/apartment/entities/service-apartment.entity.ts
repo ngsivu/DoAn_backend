@@ -1,8 +1,8 @@
 import { Column, Entity, ManyToOne, PrimaryGeneratedColumn } from 'typeorm';
-import { Place } from './place.entity';
+import { Apartment } from './apartment.entity';
 
-@Entity({ name: 'service-place' })
-export class ServicePlace {
+@Entity({ name: 'service-apartment' })
+export class ServiceApartment {
   @PrimaryGeneratedColumn('uuid', { name: 'id' })
   id: string;
 
@@ -15,6 +15,6 @@ export class ServicePlace {
   @Column({ default: false })
   isDelete: boolean;
 
-  @ManyToOne(() => Place, (place) => place.services)
-  place: Place;
+  @ManyToOne(() => Apartment, (apartment) => apartment.services)
+  apartment: Apartment;
 }

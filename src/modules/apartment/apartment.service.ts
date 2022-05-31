@@ -3,19 +3,19 @@ import { JwtService } from '@nestjs/jwt';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
 import { API_FAIL, PLACE_MESSAGE, ROLE } from '../../common/constant';
-import { OwnerPlace } from '../owner-place/entities/owner-place.entity';
+import { OwnerApartment } from '../owner-apartment/entities/owner-apartments.entity';
 import { CreatePlaceDto } from './dto/create-place.dto';
 import { GetPlaceParams } from './dto/get-place.dto';
 import { UpdatePlaceDto } from './dto/update-place.dto';
-import { Place } from './entities/place.entity';
+import { Apartment } from './entities/apartment.entity';
 
 @Injectable()
 export class PlaceService {
   constructor(
-    @InjectRepository(Place)
-    private placeRepository: Repository<Place>,
-    @InjectRepository(OwnerPlace)
-    private ownerPlaceRepository: Repository<OwnerPlace>,
+    @InjectRepository(Apartment)
+    private placeRepository: Repository<Apartment>,
+    @InjectRepository(OwnerApartment)
+    private ownerPlaceRepository: Repository<OwnerApartment>,
     private readonly jwtService: JwtService,
   ) {}
   async create(createPlaceDto: CreatePlaceDto, user) {

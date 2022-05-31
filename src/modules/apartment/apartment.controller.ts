@@ -7,10 +7,9 @@ import {
   Param,
   Delete,
   UseGuards,
-  HttpStatus,
   Query,
 } from '@nestjs/common';
-import { PlaceService } from './place.service';
+import { PlaceService } from './apartment.service';
 import { CreatePlaceDto } from './dto/create-place.dto';
 import { UpdatePlaceDto } from './dto/update-place.dto';
 import { OwnerAuthGuard, UserAuthGuard } from '../auth/jwt.strategy';

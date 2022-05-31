@@ -1,6 +1,6 @@
 import { ApiProperty } from '@nestjs/swagger';
 import { ROLE } from 'src/common/constant';
-import { OwnerPlace } from '../../owner-place/entities/owner-place.entity';
+import { OwnerApartment } from '../../owner-apartment/entities/owner-apartments.entity';
 import {
   Column,
   CreateDateColumn,
@@ -91,11 +91,11 @@ export class UserEntity {
   @UpdateDateColumn()
   updatedAt: Date;
 
-  @OneToOne(() => OwnerPlace, (user) => user.userInfo, {
+  @OneToOne(() => OwnerApartment, (user) => user.userInfo, {
     cascade: true,
   })
   @JoinColumn()
-  ownerPlace: OwnerPlace;
+  ownerPlace: OwnerApartment;
 
   @OneToOne(() => Admin, (user) => user.userInfo, {
     cascade: true,
