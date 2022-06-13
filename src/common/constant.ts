@@ -5,6 +5,11 @@ export enum ROLE {
   owner = 2,
   admin = 3,
 }
+
+export enum TYPE {
+  room = 1,
+  all = 2,
+}
 export const AUTH_MESSAGE = {
   EMAIL_EXITS: 'Email đã được sử dụng',
   EMAIL_NOT_FOUND: 'Email không tồn tại',

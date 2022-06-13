@@ -1,3 +1,4 @@
+import { TYPE } from 'src/common/constant';
 import {
   Column,
   CreateDateColumn,
@@ -33,6 +34,36 @@ export class Apartment {
 
   @Column({ name: 'priceMin' })
   priceMin: number;
+
+  @Column({ name: 'price' })
+  price: number;
+
+  @Column({ name: 'deposit' })
+  deposit: number;
+
+  @Column({ name: 'length' })
+  length: number;
+
+  @Column({ name: 'width' })
+  width: number;
+
+  @Column({ name: 'area' })
+  area: number;
+
+  @Column('enum', { default: 1, enum: TYPE })
+  type: number;
+
+  @Column({ name: 'totalFloor' })
+  totalFloor: number;
+
+  @Column({ name: 'totalBedroom' })
+  totalBedroom: number;
+
+  @Column({ name: 'totalRestroom' })
+  totalRestroom: number;
+
+  @Column({ name: 'description' })
+  description: string;
 
   @Column({ name: 'isEnable', default: true })
   isEnable: boolean;
