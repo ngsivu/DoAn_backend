@@ -35,6 +35,58 @@ export class CreatePlaceDto {
   priceMin: number;
 
   @ApiProperty({ required: true, example: 1000 })
+  @IsNotEmpty()
+  @IsInt()
+  price: number;
+
+  @ApiProperty({ required: true, example: 1000 })
+  @IsNotEmpty()
+  @IsInt()
+  deposit: number;
+
+  @ApiProperty({ required: true, example: 1000 })
+  @IsNotEmpty()
+  @IsInt()
+  length: number;
+
+  @ApiProperty({ required: true, example: 1000 })
+  @IsNotEmpty()
+  @IsInt()
+  width: number;
+  
+
+  @ApiProperty({ required: true, example: 1000 })
+  @IsNotEmpty()
+  @IsInt()
+  area: number;
+
+
+  @ApiProperty({ required: true, example: 1000 })
+  @IsNotEmpty()
+  @IsInt()
+  type: number;
+
+  @ApiProperty({ required: true, example: 1000 })
+  @IsNotEmpty()
+  @IsInt()
+  totalFloor: number;
+
+  @ApiProperty({ required: true, example: 1000 })
+  @IsNotEmpty()
+  @IsInt()
+  totalBedroom: number;
+
+  @ApiProperty({ required: true, example: 1000 })
+  @IsNotEmpty()
+  @IsInt()
+  totalRestroom: number;
+
+  @ApiProperty({ required: true, example: '8h30', description: 'Format 8:30' })
+  @IsNotEmpty()
+  @IsString()
+  description: string;
+
+  @ApiProperty({ required: true, example: 1000 })
   @IsArray()
   imageBanner;
 
@@ -42,9 +94,6 @@ export class CreatePlaceDto {
   @IsArray()
   imageDetails;
 
-  @ApiProperty({ example: 1000 })
-  @IsArray()
-  timeGold;
 
   @ApiProperty({ example: 1000 })
   @IsArray()

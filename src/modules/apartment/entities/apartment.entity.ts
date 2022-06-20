@@ -11,7 +11,7 @@ import {
 import { OwnerApartment } from '../../owner-apartment/entities/owner-apartments.entity';
 import { ServiceApartment } from './service-apartment.entity';
 import { TypeApartment } from './type-apartment.entity';
-
+import {Comment} from '../../comment/entities/comment.entity'
 @Entity({ name: 'apartment' })
 export class Apartment {
   @PrimaryGeneratedColumn('uuid', { name: 'id' })
@@ -95,6 +95,9 @@ export class Apartment {
     cascade: true,
   })
   services: ServiceApartment[];
+
+  @OneToMany(()=>Comment,(comment)=>comment.apartment)
+  comment:Comment[]
 
   //one to many comment place
 

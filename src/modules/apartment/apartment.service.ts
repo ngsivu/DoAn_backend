@@ -51,6 +51,7 @@ export class PlaceService {
       where: {
         isEnable: true,
       },
+      relations: ['services', 'typeApartment', 'comment'],
       skip: (getParams.page - 1) * getParams.pageSize,
       take: getParams.pageSize,
     });
@@ -68,7 +69,7 @@ export class PlaceService {
         isEnable: true,
         id,
       },
-      relations: ['services', 'timeGold', 'owner'],
+      relations: ['services', 'owner', 'comment'],
     });
     return place;
   }
