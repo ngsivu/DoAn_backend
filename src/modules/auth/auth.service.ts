@@ -54,7 +54,7 @@ export class AuthService {
           HttpStatus.BAD_REQUEST,
         );
       }
-      if (userCheck.actived === false && userCheck.role === ROLE.user) {
+      if (userCheck.actived === false) {
         const token = await this.jwtService.signAsync(
           {
             id: userCheck.id,
@@ -310,12 +310,15 @@ export class AuthService {
   }
 
   async activeEmail(params) {
+    console.log('params', params);
     const payload = await this.jwtService.verify(params.token);
     const user = await this.usersRepository.findOne({
       where: { id: payload.id },
     });
     if (user) {
+      console.log('user', user);
       if (user.role === ROLE.user) {
+        console.log('11111', 11111);
         await this.usersRepository.update(
           { id: user.id },
           {

@@ -7,11 +7,10 @@ export class MailService {
 
   async sendUserConfirmation(token: string, name, email) {
     const url = `${process.env.BASE_URL}/auth/active?token=${token}`;
-
     await this.mailerService.sendMail({
       to: email,
       // from: '"Support Team" <support@example.com>', // override default from
-      subject: 'Welcome to DatsanApp! Confirm your Email',
+      subject: 'Welcome to Do_an_VuNS! Confirm your Email',
       template: 'confirmation', // `.hbs` extension is appended automatically
       context: {
         // ✏️ filling curly brackets with content
