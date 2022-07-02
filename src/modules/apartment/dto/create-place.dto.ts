@@ -10,6 +10,11 @@ import {
 } from 'class-validator';
 
 export class CreatePlaceDto {
+  @ApiProperty({ required: true, example: 'Phòng trọ 3 người Đống Đa' })
+  @IsNotEmpty()
+  @IsString()
+  name: string;
+
   @ApiProperty({ required: true, example: 'Lãng Yên hai bà trung' })
   @IsNotEmpty()
   @IsString()

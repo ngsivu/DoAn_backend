@@ -20,10 +20,13 @@ export class Apartment {
   @Column({ length: 250, name: 'address-place' })
   address: string;
 
+  @Column()
+  name: string;
+
   @Column({ type: 'text', nullable: true })
   description: string;
 
-  @Column({ name: 'point', default: 100 })
+  @Column({ name: 'point', default: 0 })
   point: number;
 
   @Column({ type: 'simple-array', name: 'imageDetails' })

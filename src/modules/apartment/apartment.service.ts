@@ -68,7 +68,7 @@ export class PlaceService {
         isEnable: true,
         id,
       },
-      relations: ['services', 'timeGold', 'owner'],
+      relations: ['services'],
     });
     return place;
   }
