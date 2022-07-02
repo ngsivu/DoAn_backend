@@ -6,6 +6,7 @@ import {
   IsString,
   IsNumber,
   IsOptional,
+  Matches,
 } from 'class-validator';
 
 export class CreatePlaceDto {
@@ -14,37 +15,53 @@ export class CreatePlaceDto {
   @IsString()
   address: string;
 
-  @ApiProperty({ required: true, example: '8h30', description: 'Format 8:30' })
+  @ApiProperty({ required: true, example: '1' })
   @IsNotEmpty()
   @IsString()
-  timeOpen: string;
+  province: string;
 
-  @ApiProperty({ required: true, example: '8h30', description: 'Format 8:30' })
+  @ApiProperty({ required: true, example: '1' })
   @IsNotEmpty()
   @IsString()
-  timeClose: string;
+  district: string;
 
-  @ApiProperty({ required: true, example: 300 })
+  @ApiProperty({ required: true, example: '1' })
   @IsNotEmpty()
-  @IsInt()
-  timeDistance: number;
+  @IsString()
+  ward: string;
+
+  @ApiProperty({ required: true, example: '1' })
+  @IsNotEmpty()
+  @IsString()
+  area: string;
 
   @ApiProperty({ required: true, example: 1000 })
   @IsNotEmpty()
-  @IsInt()
-  priceMin: number;
-
-  @ApiProperty({ required: true, example: 1000 })
-  @IsArray()
-  imageBanner;
-
-  @ApiProperty({ required: true, example: 1000 })
-  @IsArray()
-  imageDetails;
+  @Matches(/^[0-9]*$/, {
+    message: 'Giá phải chứ ký tự 0-9',
+  })
+  price: string;
 
   @ApiProperty({ example: 1000 })
+  @IsString()
+  deposit: string;
+
+  @ApiProperty({ example: 1000 })
+  @IsString()
+  totalBedroom: string;
+
+  @ApiProperty({ example: 1000 })
+  @IsString()
+  totalRestroom: string;
+
+  @ApiProperty({ required: true, example: 'description' })
+  @IsNotEmpty()
+  @IsString()
+  description: string;
+
+  @ApiProperty()
   @IsArray()
-  timeGold;
+  imageDetails;
 
   @ApiProperty({ example: 1000 })
   @IsArray()
@@ -53,5 +70,5 @@ export class CreatePlaceDto {
   @ApiProperty({ example: 1000 })
   @IsOptional()
   @IsNumber()
-  limitUser;
+  limitUsers: number;
 }

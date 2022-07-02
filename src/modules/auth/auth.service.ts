@@ -67,7 +67,8 @@ export class AuthService {
           registerUserDto.email,
         );
         return {
-          message: 'Check email pls',
+          status: 'confirm-email',
+          message: 'Vui lòng xác thực email',
         };
       }
     }
@@ -104,6 +105,7 @@ export class AuthService {
     }
 
     return {
+      status: 'success',
       message: 'Đăng Ký Thành Công',
     };
   }

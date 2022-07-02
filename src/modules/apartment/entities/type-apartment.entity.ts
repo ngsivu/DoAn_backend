@@ -10,7 +10,10 @@ export class TypeApartment {
   name: string;
 
   @Column({ default: true })
-  isAllow: boolean;
+  isActive: boolean;
+
+  @Column({ default: false })
+  isDeleted: boolean;
 
   @OneToMany(() => Apartment, (place) => place.typeApartment)
   apartment: Apartment[];

@@ -6,10 +6,10 @@ export class ServiceApartment {
   @PrimaryGeneratedColumn('uuid', { name: 'id' })
   id: string;
 
-  @Column()
-  price: number;
+  @Column({ nullable: true })
+  price1: number;
 
-  @Column()
+  @Column({ nullable: true })
   name: string;
 
   @Column({ default: false })

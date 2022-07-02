@@ -15,7 +15,7 @@ export class Order {
   createAt: Date;
 
   @Column()
-  price: number;
+  price2: number;
 
   @Column({ default: ORDER_STATUS.WAIT_CONFIRM })
   status: number;

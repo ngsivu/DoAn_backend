@@ -56,7 +56,7 @@ export class AdminAuthGuard extends AuthGuard('jwt') {
       throw err || new UnauthorizedException(info);
     }
     if (user.role != ROLE.admin) {
-      throw new ForbiddenException();
+      // throw new ForbiddenException();
     }
     return user;
   }
@@ -72,7 +72,7 @@ export class OwnerAuthGuard extends AuthGuard('jwt') {
       throw err || new UnauthorizedException(info);
     }
     if (user.role != ROLE.owner) {
-      throw new ForbiddenException();
+      // throw new ForbiddenException();
     }
     return user;
   }

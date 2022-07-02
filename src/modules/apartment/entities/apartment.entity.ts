@@ -17,62 +17,50 @@ export class Apartment {
   @PrimaryGeneratedColumn('uuid', { name: 'id' })
   id: string;
 
-  @Column({ length: 30, name: 'address' })
+  @Column({ length: 250, name: 'address-place' })
   address: string;
+
+  @Column({ type: 'text', nullable: true })
+  description: string;
 
   @Column({ name: 'point', default: 100 })
   point: number;
 
-  @Column({ type: 'simple-array', name: 'imageBanner' })
-  imageBanner: string;
-
   @Column({ type: 'simple-array', name: 'imageDetails' })
   imageDetails: string;
 
-  @Column({ name: 'timeOpen' })
-  timeOpen: string;
+  @Column({ name: 'province' })
+  province: string;
 
-  @Column({ name: 'priceMin' })
-  priceMin: number;
+  @Column({ name: 'district' })
+  district: string;
+
+  @Column({ name: 'ward' })
+  ward: string;
 
   @Column({ name: 'price' })
-  price: number;
+  price: string;
 
-  @Column({ name: 'deposit' })
-  deposit: number;
-
-  @Column({ name: 'length' })
-  length: number;
-
-  @Column({ name: 'width' })
-  width: number;
+  @Column({ name: 'deposit', nullable: true })
+  deposit: string;
 
   @Column({ name: 'area' })
-  area: number;
+  area: string;
 
-  @Column('enum', { default: 1, enum: TYPE })
-  type: number;
+  @Column({ name: 'totalFloor', default: 1 })
+  totalFloor: string;
 
-  @Column({ name: 'totalFloor' })
-  totalFloor: number;
+  @Column({ name: 'totalBedroom', default: 1 })
+  totalBedroom: string;
 
-  @Column({ name: 'totalBedroom' })
-  totalBedroom: number;
-
-  @Column({ name: 'totalRestroom' })
-  totalRestroom: number;
-
-  @Column({ name: 'description' })
-  description: string;
+  @Column({ name: 'totalRestroom', default: 1 })
+  totalRestroom: string;
 
   @Column({ name: 'isEnable', default: true })
   isEnable: boolean;
 
-  @Column({ name: 'timeClose' })
-  timeClose: string;
-
-  @Column({ nullable: true })
-  limitUser: number;
+  @Column({ name: 'limit-users', nullable: true })
+  limitUsers: number;
 
   @CreateDateColumn()
   createAt: Date;
