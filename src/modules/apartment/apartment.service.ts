@@ -86,7 +86,7 @@ export class PlaceService {
       total: places[1],
       pageSize: getParams.pageSize,
       currentPage: getParams.page,
-      records: places[0],
+      records,
     };
   }
 
