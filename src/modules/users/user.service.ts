@@ -51,4 +51,23 @@ export class UserService {
       );
     }
   }
+
+  async updateUserInfo(userId: string, updateUserInfoDTO: any ) {
+    const user = await this.userRepository.findOne({
+      where: {
+        id: userId,
+      },
+    });
+    if (!user) {
+      throw new HttpException(
+        'Người dùng không tồn tại.',
+        HttpStatus.NOT_FOUND,
+      );
+    }
+    const updateUserInfo = pick(updateUserInfoDTO, [
+      'fullName',
+      'phone',
+    ]);
+    return this.userRepository.update(userId, updateUserInfo);
+  }
 }

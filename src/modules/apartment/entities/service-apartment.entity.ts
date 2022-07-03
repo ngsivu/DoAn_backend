@@ -7,7 +7,7 @@ export class ServiceApartment {
   id: string;
 
   @Column({ nullable: true })
-  price1: number;
+  price: number;
 
   @Column({ nullable: true })
   name: string;

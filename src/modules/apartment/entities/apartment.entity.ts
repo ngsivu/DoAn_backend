@@ -44,6 +44,9 @@ export class Apartment {
   @Column({ name: 'price' })
   price: string;
 
+  @Column({ name: 'listServices' })
+  listServices: string;
+
   @Column({ name: 'deposit', nullable: true })
   deposit: string;
 

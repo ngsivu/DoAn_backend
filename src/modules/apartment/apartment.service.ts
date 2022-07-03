@@ -19,14 +19,16 @@ export class PlaceService {
     private readonly jwtService: JwtService,
   ) {}
   async create(createPlaceDto: CreatePlaceDto, user) {
-    console.log(user);
+    const { services, ...restCreatePlace } = createPlaceDto;
+    const listServices = JSON.stringify(services);
     const owner = await this.ownerPlaceRepository.findOne({
       where: { id: user.relativeId },
     });
 
     const place = await this.placeRepository.create({
       owner,
-      ...createPlaceDto,
+      listServices,
+      ...restCreatePlace,
     });
     await this.placeRepository.save(place);
     return place;
@@ -68,8 +70,8 @@ export class PlaceService {
         isEnable: true,
         id,
       },
-      relations: ['services'],
     });
+    place.listServices = JSON.parse(place.listServices);
     return place;
   }
 

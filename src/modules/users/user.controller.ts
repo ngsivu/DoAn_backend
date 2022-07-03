@@ -4,6 +4,8 @@ import {
   Param,
   ParseUUIDPipe,
   UseGuards,
+  Put,
+  Body
 } from '@nestjs/common';
 import {
   ApiBearerAuth,
@@ -33,5 +35,17 @@ export class UserController {
   @UseGuards(JwtAuthGuard)
   async getBonusUser(@UserInfo() user: IUserInfo) {
     return this.userService.getBonusUser(user.id);
+  }
+
+  @Put('')
+  @ApiOperation({
+    summary: 'user. get bonus user info',
+  })
+  @UseGuards(JwtAuthGuard)
+  async updateUserInfo(
+    @Body() updateUserInfoDTO: any,
+    @UserInfo() user: IUserInfo
+  ) {
+    return this.userService.updateUserInfo(user.id, updateUserInfoDTO);
   }
 }
