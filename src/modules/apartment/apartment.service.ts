@@ -56,6 +56,9 @@ export class PlaceService {
       },
       skip: (getParams.page - 1) * getParams.pageSize,
       take: getParams.pageSize,
+      order: {
+        createAt: 'DESC',
+      },
     });
     const res = places[0];
     const records = res.filter(place => {
