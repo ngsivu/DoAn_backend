@@ -49,12 +49,38 @@ export class PlaceService {
   }
 
   async findAll(getParams: GetPlaceParams) {
+    const { minPrice, maxPrice, minArea, maxArea,province, district, ward  } = getParams;
     const places = await this.placeRepository.findAndCount({
       where: {
-        isEnable: true,
+        isEnable: true
       },
       skip: (getParams.page - 1) * getParams.pageSize,
       take: getParams.pageSize,
+    });
+    const res = places[0];
+    const records = res.filter(place => {
+      if (minPrice && Number(place.price) < minPrice) {
+        return false;
+      }
+      if (maxPrice && Number(place.price) > maxPrice) {
+        return false;
+      }
+      if (minArea && Number(place.area) < minArea) {
+        return false;
+      }
+      if (maxArea && Number(place.area) > maxArea) {
+        return false;
+      }
+      if (province && place.province !== province) {
+        return false;
+      }
+      if (district && place.district !== district) {
+        return false;
+      }
+      if (ward && place.ward !== ward) {
+        return false;
+      }
+      return true;
     });
     return {
       total: places[1],

@@ -32,4 +32,44 @@ export class GetPlaceParams {
   @IsOptional()
   @IsString()
   typePlace: string;
+
+  @ApiProperty({ example: 1, nullable: true })
+  @IsOptional()
+  @IsNumber()
+  @Min(0)
+  minPrice: number;
+
+  @ApiProperty({ example: 1, nullable: true })
+  @IsOptional()
+  @IsNumber()
+  @Min(0)
+  maxPrice: number;
+
+  @ApiProperty({ example: 1, nullable: true })
+  @IsOptional()
+  @IsNumber()
+  @Min(0)
+  minArea: number;
+
+  @ApiProperty({ example: 1, nullable: true })
+  @IsOptional()
+  @IsNumber()
+  @Min(0)
+  maxArea: number;
+
+  @ApiProperty({ example: 1, nullable: true })
+  @IsOptional()
+  @IsString()
+  province: string;
+
+  @ApiProperty({ example: 1, nullable: true })
+  @IsOptional()
+  @IsString()
+  district: string;
+  
+  @ApiProperty({ example: 1, nullable: true })
+  @IsOptional()
+  @IsString()
+  ward: string;
+  
 }
