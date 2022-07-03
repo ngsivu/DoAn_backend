@@ -9,10 +9,15 @@ import {
 } from 'class-validator';
 
 export class UpdateUserDto {
-  @ApiProperty({ example: 'Phong nguyen', required: false })
+  @ApiProperty({ example: 'Vu nguyen', required: false })
   @IsOptional()
   @IsString()
   fullName: string;
+
+  @ApiProperty({ example: 'Vu nguyen', required: false })
+  @IsOptional()
+  @IsString()
+  phone: string;
 
   @ApiProperty({ example: 'name.jpg', required: false })
   @IsOptional()

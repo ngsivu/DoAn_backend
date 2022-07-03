@@ -68,6 +68,9 @@ export class Apartment {
   @Column({ name: 'limit-users', nullable: true })
   limitUsers: number;
 
+  @Column({ name: 'vip', default: false })
+  vip: boolean;
+
   @CreateDateColumn()
   createAt: Date;
 

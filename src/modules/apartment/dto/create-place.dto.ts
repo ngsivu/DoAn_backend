@@ -7,6 +7,7 @@ import {
   IsNumber,
   IsOptional,
   Matches,
+  IsBoolean,
 } from 'class-validator';
 
 export class CreatePlaceDto {
@@ -76,4 +77,8 @@ export class CreatePlaceDto {
   @IsOptional()
   @IsNumber()
   limitUsers: number;
+
+  @ApiProperty({ example: false })
+  @IsBoolean()
+  vip: boolean;
 }
